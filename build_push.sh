@@ -7,7 +7,7 @@ fi
 
 IMAGE="$1/nginx-v2ray:$2"
 
-docker build -t "$IMAGE" .
+docker build --no-cache -t "$IMAGE" .
 
 if [ $? -ne 0 ]; then
   echo "Error: image build failed, push skipped."
