@@ -42,6 +42,7 @@ start_v2ray() {
         -e "s:\${V2RAY_WS_PATH}:${V2RAY_WS_PATH}:" \
         /conf/v2ray/config.json.template >${V2RAY_CONF}
     echo "starting v2ray at port ${V2RAY_PORT}"
+    export V2RAY_VMESS_AEAD_FORCED=false
     /usr/bin/v2ray -config ${V2RAY_CONF}
 }
 
