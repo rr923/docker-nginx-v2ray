@@ -4,7 +4,6 @@
 [![Docker Cloud Automated build](https://img.shields.io/docker/cloud/automated/gongshw/docker-nginx-v2ray)](https://hub.docker.com/r/gongshw/docker-nginx-v2ray)
 [![Docker Cloud Build Status](https://img.shields.io/docker/cloud/build/gongshw/docker-nginx-v2ray)](https://hub.docker.com/r/gongshw/docker-nginx-v2ray/builds)
 
-
 ## 安装并启动 docker 服务
 
 [Docker 文档](https://docs.docker.com/install/)
@@ -45,12 +44,14 @@ docker run -d --restart=always \
 ### /data/cert
 
 证书文件, 如果不存在会自己生成. 路径如下:
+
 ```
 /data/cert
 └── ${SITE_DOMAIN}
     ├── certificate.crt      # pem 格式证书链
     └── private.key          # pem 格式私钥
 ```
+
 建议用有效的证书替换.
 
 ### /data/www
@@ -59,10 +60,6 @@ docker run -d --restart=always \
 
 ## 内部端口
 
-### http/80
-
-重定向请求到 `443` 端口.
-
 ### https/443
 
 nginx 代理的 v2ray 服务, 伪装成了一个静态站点.
@@ -70,3 +67,7 @@ nginx 代理的 v2ray 服务, 伪装成了一个静态站点.
 ### vmess/12345
 
 v2ray 的端口, 不建议直接对外暴露.
+
+### 创建命令
+
+`./build_push.sh pgvpn v0.1.6`
